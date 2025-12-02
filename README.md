@@ -14,7 +14,8 @@ O fluxo foi projetado para facilitar a integração com netlists gerados para a 
 
 Para que os scripts funcionem corretamente e a simulação ocorra sem erros, as seguintes pastas devem estar presentes na raiz do projeto:
 
-├── build_wrapper.sh \n
+```bash
+├── build_wrapper.sh 
 ├── files_synthesis
 │   ├── ack_pav2.sdf
 │   └── ack_pav2.v
@@ -32,6 +33,7 @@ Para que os scripts funcionem corretamente e a simulação ocorra sem erros, as 
 │   ├── sky130_fd_sc_hvl.v
 │   └── sky130_sram_2kbyte_1rw1r_32x512_8.v
 └── README.md
+```
 
 ### `files_synthesis/`
 Esta pasta deve conter os arquivos resultantes do processo de síntese lógica (gerados por ferramentas como OpenLane/Librelane).
