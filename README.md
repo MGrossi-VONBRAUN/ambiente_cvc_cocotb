@@ -14,7 +14,7 @@ O fluxo foi projetado para facilitar a integração com netlists gerados para a 
 
 Para que os scripts funcionem corretamente e a simulação ocorra sem erros, as seguintes pastas devem estar presentes na raiz do projeto:
 
-├── build_wrapper.sh
+├── build_wrapper.sh \n
 ├── files_synthesis
 │   ├── ack_pav2.sdf
 │   └── ack_pav2.v
