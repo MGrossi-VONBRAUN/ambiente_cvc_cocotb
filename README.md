@@ -1,3 +1,5 @@
+Estudo feito por Matheus Grossi, quaisquer dúvidas, correções/sugestões, estarei aqui para o que necessário!
+
 # Ambiente de Verificação Digital (Cocotb + CVC + Sky130 + SDF)
 
 Este repositório contém a estrutura para configurar um ambiente de verificação funcional e pós-síntese (GLS - Gate Level Simulation) utilizando **Cocotb**, **PyUVM** e o simulador **CVC**.
