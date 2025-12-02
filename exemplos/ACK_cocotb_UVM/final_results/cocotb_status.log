@@ -1,0 +1,657 @@
+Makefile:92: aviso: sobrescrevendo os comandos para o alvo 'run_and_log'
+Makefile:10: aviso: ignorando comandos antigos para o alvo 'run_and_log'
+mkdir -p sim_build
+MODULE=tests.test_ack \
+TESTCASE= TOPLEVEL=wrapper TOPLEVEL_LANG=verilog \
+        /usr/local/bin/cvc64 +interp +acc+2 -o sim_build/sim.vvp +define+COCOTB_SIM=1 +loadvpi=/home/matheus/Downloads/ACK/ACK_cocotb/cocotb_env/lib/python3.10/site-packages/cocotb/libs/libcocotbvpi_modelsim.so:vlog_startup_routines_bootstrap +acc+4 +incdir+pdk-lib +define+FUNCTIONAL +define+UNIT_DELAY +define+USE_POWER_PINS +informs +verbose +typdelays -l cvc_compile.log +suppress_warns+679 +suppress_warns+531 +suppress_warns+597 +suppress_warns+653 +suppress_warns+555 +suppress_warns+678 +suppress_warns+3106 +suppress_warns+3153 +suppress_warns+3154 +suppress_warns+3155  wrapper.v /home/matheus/Downloads/ACK/ACK_cocotb_UVM/files_synthesis/ack_pav2.v
+OSS_CVC_7.00b-x86_64-rhel6x of 07/07/14 (Linux-elf).
+Copyright (c) 1991-2014 Tachyon Design Automation Corp.
+  All Rights reserved.  Licensed software subject to prohibitions and
+  restrictions.  See OSS CVC artistic license included with release.
+Today is Tue Dec  2 14:27:17 2025.
+  Verbose mode is on.
+  Output log will be written to "cvc_compile.log".
+  Invoked by: "/usr/local/bin/cvc64".
+  Interpreted Simulation.
+  Design compiled for VPI_ PLI access level 2.
+  Compiled simulation executable saved to file sim_build/sim.vvp
+  `define of COCOTB_SIM value 1 added from command option.
+  +loadvpi= dynamic library /home/matheus/Downloads/ACK/ACK_cocotb/cocotb_env/lib/python3.10/site-packages/cocotb/libs/libcocotbvpi_modelsim.so loaded with bootstrap routine(s) :vlog_startup_routines_bootstrap
+  Design compiled for VPI_ PLI access level 4.
+  +pdk-lib additional +incdir+ paths searched to find `include files.
+  `define of FUNCTIONAL (no value form) added from command option.
+  `define of UNIT_DELAY (no value form) added from command option.
+  `define of USE_POWER_PINS (no value form) added from command option.
+  Min:typ:max expressions will use the typical value (default).
+  Following warning or interactive message(s) 679+ will not be emitted.
+  Following warning or interactive message(s) 531+ will not be emitted.
+  Following warning or interactive message(s) 597+ will not be emitted.
+  Following warning or interactive message(s) 653+ will not be emitted.
+  Following warning or interactive message(s) 555+ will not be emitted.
+  Following warning or interactive message(s) 678+ will not be emitted.
+  Following warning or interactive message(s) 3106+ will not be emitted.
+  Following warning or interactive message(s) 3153+ will not be emitted.
+  Following warning or interactive message(s) 3154+ will not be emitted.
+  Following warning or interactive message(s) 3155+ will not be emitted.
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:108  in set_program_name_in_venv        Using Python virtual environment interpreter at /home/matheus/Downloads/ACK/ACK_cocotb/cocotb_env/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+  P1364 2001 config map library not specified - using -y/-v libraries.
+  Begin Translation:
+Elaborating source file "wrapper.v"
+  Elaborating `included source file "pdk-lib/primitives_hd.v"
+  Elaborating `included source file "pdk-lib/primitives_hvl.v"
+  Elaborating `included source file "pdk-lib/sky130_fd_io.v"
+  Elaborating `included source file "pdk-lib/sky130_fd_sc_hd.v"
+  Elaborating `included source file "pdk-lib/sky130_fd_sc_hvl.v"
+  Elaborating `included source file "pdk-lib/sky130_ef_sc_hd__decap_12.v"
+Elaborating source file "/home/matheus/Downloads/ACK/ACK_cocotb_UVM/files_synthesis/ack_pav2.v"
+  Begin Elaboration pass 2:
+  Approximately 14650812 bytes storage allocated (excluding udps).
+Highest level modules:
+sky130_fd_io__top_gpio_ovtv2
+sky130_fd_io__top_gpiov2
+sky130_fd_io__top_ground_hvc_wpad
+sky130_fd_io__top_ground_lvc_wpad
+sky130_fd_io__top_power_hvc_wpad
+sky130_fd_io__top_power_hvc_wpadv2
+sky130_fd_io__top_power_lvc_wpad
+sky130_fd_io__top_refgen
+sky130_fd_io__top_sio_macro
+sky130_fd_io__top_xres4v2
+sky130_fd_sc_hd__a2bb2o_1
+sky130_fd_sc_hd__a2bb2o_2
+sky130_fd_sc_hd__a2bb2o_4
+sky130_fd_sc_hd__a2bb2oi_1
+sky130_fd_sc_hd__a2bb2oi_2
+sky130_fd_sc_hd__a2bb2oi_4
+sky130_fd_sc_hd__a21bo_2
+sky130_fd_sc_hd__a21bo_4
+sky130_fd_sc_hd__a21boi_0
+sky130_fd_sc_hd__a21boi_1
+sky130_fd_sc_hd__a21boi_2
+sky130_fd_sc_hd__a21o_2
+sky130_fd_sc_hd__a21o_4
+sky130_fd_sc_hd__a21oi_2
+sky130_fd_sc_hd__a21oi_4
+sky130_fd_sc_hd__a22o_2
+sky130_fd_sc_hd__a22o_4
+sky130_fd_sc_hd__a22oi_1
+sky130_fd_sc_hd__a22oi_2
+sky130_fd_sc_hd__a22oi_4
+sky130_fd_sc_hd__a31o_2
+sky130_fd_sc_hd__a31o_4
+sky130_fd_sc_hd__a31oi_1
+sky130_fd_sc_hd__a31oi_2
+sky130_fd_sc_hd__a31oi_4
+sky130_fd_sc_hd__a32o_1
+sky130_fd_sc_hd__a32o_2
+sky130_fd_sc_hd__a32o_4
+sky130_fd_sc_hd__a32oi_1
+sky130_fd_sc_hd__a32oi_2
+sky130_fd_sc_hd__a32oi_4
+sky130_fd_sc_hd__a41o_2
+sky130_fd_sc_hd__a41o_4
+sky130_fd_sc_hd__a41oi_1
+sky130_fd_sc_hd__a41oi_2
+sky130_fd_sc_hd__a41oi_4
+sky130_fd_sc_hd__a211o_2
+sky130_fd_sc_hd__a211o_4
+sky130_fd_sc_hd__a211oi_1
+sky130_fd_sc_hd__a211oi_2
+sky130_fd_sc_hd__a211oi_4
+sky130_fd_sc_hd__a221o_2
+sky130_fd_sc_hd__a221o_4
+sky130_fd_sc_hd__a221oi_1
+sky130_fd_sc_hd__a221oi_2
+sky130_fd_sc_hd__a221oi_4
+sky130_fd_sc_hd__a222oi_1
+sky130_fd_sc_hd__a311o_1
+sky130_fd_sc_hd__a311o_2
+sky130_fd_sc_hd__a311o_4
+sky130_fd_sc_hd__a311oi_1
+sky130_fd_sc_hd__a311oi_2
+sky130_fd_sc_hd__a311oi_4
+sky130_fd_sc_hd__a2111o_1
+sky130_fd_sc_hd__a2111o_2
+sky130_fd_sc_hd__a2111o_4
+sky130_fd_sc_hd__a2111oi_0
+sky130_fd_sc_hd__a2111oi_1
+sky130_fd_sc_hd__a2111oi_2
+sky130_fd_sc_hd__a2111oi_4
+sky130_fd_sc_hd__and2_0
+sky130_fd_sc_hd__and2_2
+sky130_fd_sc_hd__and2_4
+sky130_fd_sc_hd__and2b_2
+sky130_fd_sc_hd__and2b_4
+sky130_fd_sc_hd__and3_2
+sky130_fd_sc_hd__and3_4
+sky130_fd_sc_hd__and3b_2
+sky130_fd_sc_hd__and3b_4
+sky130_fd_sc_hd__and4_2
+sky130_fd_sc_hd__and4_4
+sky130_fd_sc_hd__and4b_1
+sky130_fd_sc_hd__and4b_2
+sky130_fd_sc_hd__and4b_4
+sky130_fd_sc_hd__and4bb_1
+sky130_fd_sc_hd__and4bb_2
+sky130_fd_sc_hd__and4bb_4
+sky130_fd_sc_hd__buf_1
+sky130_fd_sc_hd__buf_4
+sky130_fd_sc_hd__buf_6
+sky130_fd_sc_hd__buf_8
+sky130_fd_sc_hd__buf_12
+sky130_fd_sc_hd__buf_16
+sky130_fd_sc_hd__bufbuf_8
+sky130_fd_sc_hd__bufbuf_16
+sky130_fd_sc_hd__bufinv_8
+sky130_fd_sc_hd__clkbuf_8
+sky130_fd_sc_hd__clkdlybuf4s15_1
+sky130_fd_sc_hd__clkdlybuf4s15_2
+sky130_fd_sc_hd__clkdlybuf4s18_1
+sky130_fd_sc_hd__clkdlybuf4s18_2
+sky130_fd_sc_hd__clkdlybuf4s25_1
+sky130_fd_sc_hd__clkdlybuf4s25_2
+sky130_fd_sc_hd__clkdlybuf4s50_1
+sky130_fd_sc_hd__clkdlybuf4s50_2
+sky130_fd_sc_hd__clkinv_1
+sky130_fd_sc_hd__clkinv_2
+sky130_fd_sc_hd__clkinv_4
+sky130_fd_sc_hd__clkinv_8
+sky130_fd_sc_hd__clkinv_16
+sky130_fd_sc_hd__clkinvlp_2
+sky130_fd_sc_hd__clkinvlp_4
+sky130_fd_sc_hd__decap_12
+sky130_fd_sc_hd__dfbbn_1
+sky130_fd_sc_hd__dfbbn_2
+sky130_fd_sc_hd__dfbbp_1
+sky130_fd_sc_hd__dfrbp_1
+sky130_fd_sc_hd__dfrbp_2
+sky130_fd_sc_hd__dfrtn_1
+sky130_fd_sc_hd__dfsbp_1
+sky130_fd_sc_hd__dfsbp_2
+sky130_fd_sc_hd__dfstp_2
+sky130_fd_sc_hd__dfstp_4
+sky130_fd_sc_hd__dfxbp_1
+sky130_fd_sc_hd__dfxbp_2
+sky130_fd_sc_hd__dfxtp_1
+sky130_fd_sc_hd__dfxtp_2
+sky130_fd_sc_hd__dfxtp_4
+sky130_fd_sc_hd__diode_2
+sky130_fd_sc_hd__dlclkp_1
+sky130_fd_sc_hd__dlclkp_2
+sky130_fd_sc_hd__dlclkp_4
+sky130_fd_sc_hd__dlrbn_1
+sky130_fd_sc_hd__dlrbn_2
+sky130_fd_sc_hd__dlrbp_1
+sky130_fd_sc_hd__dlrbp_2
+sky130_fd_sc_hd__dlrtn_1
+sky130_fd_sc_hd__dlrtn_2
+sky130_fd_sc_hd__dlrtn_4
+sky130_fd_sc_hd__dlrtp_1
+sky130_fd_sc_hd__dlrtp_2
+sky130_fd_sc_hd__dlrtp_4
+sky130_fd_sc_hd__dlxbn_1
+sky130_fd_sc_hd__dlxbn_2
+sky130_fd_sc_hd__dlxbp_1
+sky130_fd_sc_hd__dlxtn_1
+sky130_fd_sc_hd__dlxtn_2
+sky130_fd_sc_hd__dlxtn_4
+sky130_fd_sc_hd__dlxtp_1
+sky130_fd_sc_hd__dlygate4sd1_1
+sky130_fd_sc_hd__dlygate4sd2_1
+sky130_fd_sc_hd__dlymetal6s4s_1
+sky130_fd_sc_hd__dlymetal6s6s_1
+sky130_fd_sc_hd__ebufn_1
+sky130_fd_sc_hd__ebufn_2
+sky130_fd_sc_hd__ebufn_4
+sky130_fd_sc_hd__ebufn_8
+sky130_fd_sc_hd__edfxbp_1
+sky130_fd_sc_hd__edfxtp_1
+sky130_fd_sc_hd__einvn_0
+sky130_fd_sc_hd__einvn_1
+sky130_fd_sc_hd__einvn_2
+sky130_fd_sc_hd__einvn_4
+sky130_fd_sc_hd__einvn_8
+sky130_fd_sc_hd__einvp_1
+sky130_fd_sc_hd__einvp_2
+sky130_fd_sc_hd__einvp_4
+sky130_fd_sc_hd__einvp_8
+sky130_fd_sc_hd__fa_1
+sky130_fd_sc_hd__fa_2
+sky130_fd_sc_hd__fa_4
+sky130_fd_sc_hd__fah_1
+sky130_fd_sc_hd__fahcin_1
+sky130_fd_sc_hd__fahcon_1
+sky130_fd_sc_hd__fill_4
+sky130_fd_sc_hd__fill_8
+sky130_fd_sc_hd__ha_1
+sky130_fd_sc_hd__ha_2
+sky130_fd_sc_hd__ha_4
+sky130_fd_sc_hd__inv_1
+sky130_fd_sc_hd__inv_4
+sky130_fd_sc_hd__inv_6
+sky130_fd_sc_hd__inv_8
+sky130_fd_sc_hd__inv_12
+sky130_fd_sc_hd__inv_16
+sky130_fd_sc_hd__lpflow_bleeder_1
+sky130_fd_sc_hd__lpflow_clkbufkapwr_1
+sky130_fd_sc_hd__lpflow_clkbufkapwr_2
+sky130_fd_sc_hd__lpflow_clkbufkapwr_4
+sky130_fd_sc_hd__lpflow_clkbufkapwr_8
+sky130_fd_sc_hd__lpflow_clkbufkapwr_16
+sky130_fd_sc_hd__lpflow_clkinvkapwr_1
+sky130_fd_sc_hd__lpflow_clkinvkapwr_2
+sky130_fd_sc_hd__lpflow_clkinvkapwr_4
+sky130_fd_sc_hd__lpflow_clkinvkapwr_8
+sky130_fd_sc_hd__lpflow_clkinvkapwr_16
+sky130_fd_sc_hd__lpflow_decapkapwr_3
+sky130_fd_sc_hd__lpflow_decapkapwr_4
+sky130_fd_sc_hd__lpflow_decapkapwr_6
+sky130_fd_sc_hd__lpflow_decapkapwr_8
+sky130_fd_sc_hd__lpflow_decapkapwr_12
+sky130_fd_sc_hd__lpflow_inputiso0n_1
+sky130_fd_sc_hd__lpflow_inputiso0p_1
+sky130_fd_sc_hd__lpflow_inputiso1n_1
+sky130_fd_sc_hd__lpflow_inputiso1p_1
+sky130_fd_sc_hd__lpflow_inputisolatch_1
+sky130_fd_sc_hd__lpflow_isobufsrc_1
+sky130_fd_sc_hd__lpflow_isobufsrc_2
+sky130_fd_sc_hd__lpflow_isobufsrc_4
+sky130_fd_sc_hd__lpflow_isobufsrc_8
+sky130_fd_sc_hd__lpflow_isobufsrc_16
+sky130_fd_sc_hd__lpflow_isobufsrckapwr_16
+sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1
+sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2
+sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4
+sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4
+sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1
+sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2
+sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4
+sky130_fd_sc_hd__macro_sparecell
+sky130_fd_sc_hd__maj3_1
+sky130_fd_sc_hd__maj3_2
+sky130_fd_sc_hd__maj3_4
+sky130_fd_sc_hd__mux2_2
+sky130_fd_sc_hd__mux2_4
+sky130_fd_sc_hd__mux2_8
+sky130_fd_sc_hd__mux2i_1
+sky130_fd_sc_hd__mux2i_2
+sky130_fd_sc_hd__mux2i_4
+sky130_fd_sc_hd__mux4_1
+sky130_fd_sc_hd__mux4_2
+sky130_fd_sc_hd__mux4_4
+sky130_fd_sc_hd__nand2_4
+sky130_fd_sc_hd__nand2_8
+sky130_fd_sc_hd__nand2b_1
+sky130_fd_sc_hd__nand2b_2
+sky130_fd_sc_hd__nand2b_4
+sky130_fd_sc_hd__nand3_1
+sky130_fd_sc_hd__nand3_2
+sky130_fd_sc_hd__nand3_4
+sky130_fd_sc_hd__nand3b_1
+sky130_fd_sc_hd__nand3b_2
+sky130_fd_sc_hd__nand3b_4
+sky130_fd_sc_hd__nand4_1
+sky130_fd_sc_hd__nand4_2
+sky130_fd_sc_hd__nand4_4
+sky130_fd_sc_hd__nand4b_1
+sky130_fd_sc_hd__nand4b_2
+sky130_fd_sc_hd__nand4b_4
+sky130_fd_sc_hd__nand4bb_1
+sky130_fd_sc_hd__nand4bb_2
+sky130_fd_sc_hd__nand4bb_4
+sky130_fd_sc_hd__nor2_4
+sky130_fd_sc_hd__nor2_8
+sky130_fd_sc_hd__nor2b_1
+sky130_fd_sc_hd__nor2b_2
+sky130_fd_sc_hd__nor2b_4
+sky130_fd_sc_hd__nor3_1
+sky130_fd_sc_hd__nor3_2
+sky130_fd_sc_hd__nor3_4
+sky130_fd_sc_hd__nor3b_1
+sky130_fd_sc_hd__nor3b_2
+sky130_fd_sc_hd__nor3b_4
+sky130_fd_sc_hd__nor4_1
+sky130_fd_sc_hd__nor4_2
+sky130_fd_sc_hd__nor4_4
+sky130_fd_sc_hd__nor4b_1
+sky130_fd_sc_hd__nor4b_2
+sky130_fd_sc_hd__nor4b_4
+sky130_fd_sc_hd__nor4bb_1
+sky130_fd_sc_hd__nor4bb_2
+sky130_fd_sc_hd__nor4bb_4
+sky130_fd_sc_hd__o2bb2a_2
+sky130_fd_sc_hd__o2bb2a_4
+sky130_fd_sc_hd__o2bb2ai_1
+sky130_fd_sc_hd__o2bb2ai_2
+sky130_fd_sc_hd__o2bb2ai_4
+sky130_fd_sc_hd__o21a_2
+sky130_fd_sc_hd__o21a_4
+sky130_fd_sc_hd__o21ai_0
+sky130_fd_sc_hd__o21ai_1
+sky130_fd_sc_hd__o21ai_2
+sky130_fd_sc_hd__o21ai_4
+sky130_fd_sc_hd__o21ba_2
+sky130_fd_sc_hd__o21ba_4
+sky130_fd_sc_hd__o21bai_1
+sky130_fd_sc_hd__o21bai_2
+sky130_fd_sc_hd__o21bai_4
+sky130_fd_sc_hd__o22a_1
+sky130_fd_sc_hd__o22a_2
+sky130_fd_sc_hd__o22a_4
+sky130_fd_sc_hd__o22ai_1
+sky130_fd_sc_hd__o22ai_2
+sky130_fd_sc_hd__o22ai_4
+sky130_fd_sc_hd__o31a_2
+sky130_fd_sc_hd__o31a_4
+sky130_fd_sc_hd__o31ai_1
+sky130_fd_sc_hd__o31ai_2
+sky130_fd_sc_hd__o31ai_4
+sky130_fd_sc_hd__o32a_1
+sky130_fd_sc_hd__o32a_2
+sky130_fd_sc_hd__o32a_4
+sky130_fd_sc_hd__o32ai_1
+sky130_fd_sc_hd__o32ai_2
+sky130_fd_sc_hd__o32ai_4
+sky130_fd_sc_hd__o41a_1
+sky130_fd_sc_hd__o41a_2
+sky130_fd_sc_hd__o41a_4
+sky130_fd_sc_hd__o41ai_1
+sky130_fd_sc_hd__o41ai_2
+sky130_fd_sc_hd__o41ai_4
+sky130_fd_sc_hd__o211a_2
+sky130_fd_sc_hd__o211a_4
+sky130_fd_sc_hd__o211ai_1
+sky130_fd_sc_hd__o211ai_2
+sky130_fd_sc_hd__o211ai_4
+sky130_fd_sc_hd__o221a_1
+sky130_fd_sc_hd__o221a_2
+sky130_fd_sc_hd__o221a_4
+sky130_fd_sc_hd__o221ai_1
+sky130_fd_sc_hd__o221ai_2
+sky130_fd_sc_hd__o221ai_4
+sky130_fd_sc_hd__o311a_1
+sky130_fd_sc_hd__o311a_2
+sky130_fd_sc_hd__o311a_4
+sky130_fd_sc_hd__o311ai_0
+sky130_fd_sc_hd__o311ai_1
+sky130_fd_sc_hd__o311ai_2
+sky130_fd_sc_hd__o311ai_4
+sky130_fd_sc_hd__o2111a_1
+sky130_fd_sc_hd__o2111a_2
+sky130_fd_sc_hd__o2111a_4
+sky130_fd_sc_hd__o2111ai_1
+sky130_fd_sc_hd__o2111ai_2
+sky130_fd_sc_hd__o2111ai_4
+sky130_fd_sc_hd__or2_0
+sky130_fd_sc_hd__or2_2
+sky130_fd_sc_hd__or2_4
+sky130_fd_sc_hd__or2b_1
+sky130_fd_sc_hd__or2b_2
+sky130_fd_sc_hd__or2b_4
+sky130_fd_sc_hd__or3_1
+sky130_fd_sc_hd__or3_2
+sky130_fd_sc_hd__or3_4
+sky130_fd_sc_hd__or3b_2
+sky130_fd_sc_hd__or3b_4
+sky130_fd_sc_hd__or4_1
+sky130_fd_sc_hd__or4_2
+sky130_fd_sc_hd__or4_4
+sky130_fd_sc_hd__or4b_1
+sky130_fd_sc_hd__or4b_2
+sky130_fd_sc_hd__or4b_4
+sky130_fd_sc_hd__or4bb_1
+sky130_fd_sc_hd__or4bb_2
+sky130_fd_sc_hd__or4bb_4
+sky130_fd_sc_hd__probe_p_8
+sky130_fd_sc_hd__probec_p_8
+sky130_fd_sc_hd__sdfbbn_1
+sky130_fd_sc_hd__sdfbbn_2
+sky130_fd_sc_hd__sdfbbp_1
+sky130_fd_sc_hd__sdfrbp_1
+sky130_fd_sc_hd__sdfrbp_2
+sky130_fd_sc_hd__sdfrtn_1
+sky130_fd_sc_hd__sdfrtp_1
+sky130_fd_sc_hd__sdfrtp_2
+sky130_fd_sc_hd__sdfrtp_4
+sky130_fd_sc_hd__sdfsbp_1
+sky130_fd_sc_hd__sdfsbp_2
+sky130_fd_sc_hd__sdfstp_1
+sky130_fd_sc_hd__sdfstp_2
+sky130_fd_sc_hd__sdfstp_4
+sky130_fd_sc_hd__sdfxbp_1
+sky130_fd_sc_hd__sdfxbp_2
+sky130_fd_sc_hd__sdfxtp_1
+sky130_fd_sc_hd__sdfxtp_2
+sky130_fd_sc_hd__sdfxtp_4
+sky130_fd_sc_hd__sdlclkp_1
+sky130_fd_sc_hd__sdlclkp_2
+sky130_fd_sc_hd__sdlclkp_4
+sky130_fd_sc_hd__sedfxbp_1
+sky130_fd_sc_hd__sedfxbp_2
+sky130_fd_sc_hd__sedfxtp_1
+sky130_fd_sc_hd__sedfxtp_2
+sky130_fd_sc_hd__sedfxtp_4
+sky130_fd_sc_hd__tap_1
+sky130_fd_sc_hd__tap_2
+sky130_fd_sc_hd__tapvgnd2_1
+sky130_fd_sc_hd__tapvgnd_1
+sky130_fd_sc_hd__xnor2_1
+sky130_fd_sc_hd__xnor2_2
+sky130_fd_sc_hd__xnor2_4
+sky130_fd_sc_hd__xnor3_1
+sky130_fd_sc_hd__xnor3_2
+sky130_fd_sc_hd__xnor3_4
+sky130_fd_sc_hd__xor2_1
+sky130_fd_sc_hd__xor2_2
+sky130_fd_sc_hd__xor2_4
+sky130_fd_sc_hd__xor3_1
+sky130_fd_sc_hd__xor3_2
+sky130_fd_sc_hd__xor3_4
+sky130_fd_sc_hvl__a21o_1
+sky130_fd_sc_hvl__a21oi_1
+sky130_fd_sc_hvl__a22o_1
+sky130_fd_sc_hvl__a22oi_1
+sky130_fd_sc_hvl__and2_1
+sky130_fd_sc_hvl__and3_1
+sky130_fd_sc_hvl__buf_1
+sky130_fd_sc_hvl__buf_2
+sky130_fd_sc_hvl__buf_4
+sky130_fd_sc_hvl__buf_8
+sky130_fd_sc_hvl__buf_16
+sky130_fd_sc_hvl__buf_32
+sky130_fd_sc_hvl__conb_1
+sky130_fd_sc_hvl__decap_4
+sky130_fd_sc_hvl__decap_8
+sky130_fd_sc_hvl__dfrbp_1
+sky130_fd_sc_hvl__dfrtp_1
+sky130_fd_sc_hvl__dfsbp_1
+sky130_fd_sc_hvl__dfstp_1
+sky130_fd_sc_hvl__dfxbp_1
+sky130_fd_sc_hvl__dfxtp_1
+sky130_fd_sc_hvl__diode_2
+sky130_fd_sc_hvl__dlclkp_1
+sky130_fd_sc_hvl__dlrtp_1
+sky130_fd_sc_hvl__dlxtp_1
+sky130_fd_sc_hvl__einvn_1
+sky130_fd_sc_hvl__einvp_1
+sky130_fd_sc_hvl__fill_1
+sky130_fd_sc_hvl__fill_2
+sky130_fd_sc_hvl__fill_4
+sky130_fd_sc_hvl__fill_8
+sky130_fd_sc_hvl__inv_1
+sky130_fd_sc_hvl__inv_2
+sky130_fd_sc_hvl__inv_4
+sky130_fd_sc_hvl__inv_     0.00ns INFO     cocotb                             Running on CVC Verilog Simulator version OSS_CVC_7.00b-x86_64-rhel6x of 07/07/14 (Linux-elf).
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.9.2 from /home/matheus/Downloads/ACK/ACK_cocotb/cocotb_env/lib/python3.10/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1764696437
+     0.00ns INFO     cocotb.regression                  Found test tests.test_ack.ACK_test
+     0.00ns INFO     cocotb.regression                  running ACK_test (1/1)
+                                                          Este é o bloco responsável por realizar as rotinas de testes.
+     0.00ns INFO     cocotb                             Starting Corner Case 1/3: {'period': 25000}
+8
+sky130_fd_sc_hvl__inv_16
+sky130_fd_sc_hvl__lsbufhv2hv_hl_1
+sky130_fd_sc_hvl__lsbufhv2hv_lh_1
+sky130_fd_sc_hvl__lsbufhv2lv_1
+sky130_fd_sc_hvl__lsbufhv2lv_simple_1
+sky130_fd_sc_hvl__lsbuflv2hv_1
+sky130_fd_sc_hvl__lsbuflv2hv_clkiso_hlkg_3
+sky130_fd_sc_hvl__lsbuflv2hv_isosrchvaon_1
+sky130_fd_sc_hvl__lsbuflv2hv_symmetric_1
+sky130_fd_sc_hvl__mux2_1
+sky130_fd_sc_hvl__mux4_1
+sky130_fd_sc_hvl__nand2_1
+sky130_fd_sc_hvl__nand3_1
+sky130_fd_sc_hvl__nor2_1
+sky130_fd_sc_hvl__nor3_1
+sky130_fd_sc_hvl__o21a_1
+sky130_fd_sc_hvl__o21ai_1
+sky130_fd_sc_hvl__o22a_1
+sky130_fd_sc_hvl__o22ai_1
+sky130_fd_sc_hvl__or2_1
+sky130_fd_sc_hvl__or3_1
+sky130_fd_sc_hvl__probe_p_8
+sky130_fd_sc_hvl__probec_p_8
+sky130_fd_sc_hvl__schmittbuf_1
+sky130_fd_sc_hvl__sdfrbp_1
+sky130_fd_sc_hvl__sdfrtp_1
+sky130_fd_sc_hvl__sdfsbp_1
+sky130_fd_sc_hvl__sdfstp_1
+sky130_fd_sc_hvl__sdfxbp_1
+sky130_fd_sc_hvl__sdfxtp_1
+sky130_fd_sc_hvl__sdlclkp_1
+sky130_fd_sc_hvl__sdlxtp_1
+sky130_fd_sc_hvl__xnor2_1
+sky130_fd_sc_hvl__xor2_1
+wrapper
+**files_synthesis/ack_pav2.sdf(9) WARN** [662] (VOLTAGE value missing in rtriple field "typ"
+**files_synthesis/ack_pav2.sdf(11) WARN** [662] (TEMPERATURE value missing in rtriple field "typ"
+**files_synthesis/ack_pav2.sdf(321) ERROR** [1509] SDF (INTERCONNECT destination out port port nvm_ack_addr_o in ack_pav2 annotated as (DEVICE delay does not have flattened gate driver
+
+**files_synthesis/ack_pav2.sdf(322) ERROR** [1509] SDF (INTERCONNECT destination out port port nvm_ack_addr_o in ack_pav2 annotated as (DEVICE delay does not have flattened gate driver
+
+**files_synthesis/ack_pav2.sdf(323) ERROR** [1509] SDF (INTERCONNECT destination out port port nvm_ack_addr_o in ack_pav2 annotated as (DEVICE delay does not have flattened gate driver
+
+  **3 SDF errors during $sdf_annotate of "files_synthesis/ack_pav2.sdf" context scope wrapper.dut
+  Verbose mode statistics:
+  175627 source lines read (includes -v/-y library files).
+  Design contains 739 module types.
+  26 instantiated udp tables of total size less than 1 million bytes.
+  There are 4 cross module and 0 intra module hierarchical references.
+  57 nets in inout or tran gate connecting transistor channels.
+
+  Begin elaborator load/optimize:
+  Begin simulation:
+
+
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluate4050000.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          25000  | g_ack:        1      | dt_proc_ctrl: 1      | f_saia:       1      | 
+8100000.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          25000  | g_ack:        0      | dt_proc_ctrl: 1      | f_saia:       1      | 
+12150000.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          25000  | g_ack:        1      | dt_proc_ctrl: 0      | f_saia:       0      | 
+16200000.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          25000  | g_ack:        1      | dt_proc_ctrl: 0      | f_saia:       1      | 
+20250000.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          25000  | g_ack:        1      | dt_proc_ctrl: 1      | f_saia:       0      | 
+20350000.00ns INFO     cocotb                             Starting Corner Case 2/3: {'period': 1562}
+20603044.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          1562   | g_ack:        1      | dt_proc_ctrl: 1      | f_saia:       1      | 
+20856088.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          1562   | g_ack:        0      | dt_proc_ctrl: 1      | f_saia:       1      | 
+21109132.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          1562   | g_ack:        1      | dt_proc_ctrl: 0      | f_saia:       0      | 
+21362176.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          1562   | g_ack:        1      | dt_proc_ctrl: 0      | f_saia:       1      | 
+21615220.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          1562   | g_ack:        1      | dt_proc_ctrl: 1      | f_saia:       0      | 
+21715220.00ns INFO     cocotb                             Starting Corner Case 3/3: {'period': 3126}
+s to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+**wrapper.v(70) WARN** now 0 ps [565] delay expression #(slow_delay) evaluates to x/z changed to #0
+  $dumpvars setup complete at 0 ps - variables dumped to file dump.fst.
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 3800000288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):3800000274 ps, (posedge CLK):3800000288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 3800000288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):3800000274 ps, (posedge CLK):3800000288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 11900000288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):11900000274 ps, (posedge CLK):11900000288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 11900000288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):11900000274 ps, (posedge CLK):11900000288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 15950000288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):15950000274 ps, (posedge CLK):15950000288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 15950000288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):15950000274 ps, (posedge CLK):15950000288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 20000000288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):20000000274 ps, (posedge CLK):20000000288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 20000000288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):20000000274 ps, (posedge CLK):20000000288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 20587424288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):20587424274 ps, (posedge CLK):20587424288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 20587424288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):20587424274 ps, (posedge CLK):20587424288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 21093512288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):21093512274 ps, (posedge CLK):21093512288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 21093512288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):21093512274 ps, (posedge CLK):21093512288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 21346556288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):21346556274 ps, (posedge CLK):21346556288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 21346556288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):21346556274 ps, (posedge CLK):21346556288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 21599600288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):21599600274 ps, (posedge CLK):21599600288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 21599600288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):21599600274 ps, (posedge CLK):21599600288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 22190372288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):22190372274 ps, (posedge CLK):22190372288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 22190372288 ps [566] timing violation in wrapper.dut22221632.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          3126   | g_ack:        1      | dt_proc_ctrl: 1      | f_saia:       1      | 
+22728044.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          3126   | g_ack:        0      | dt_proc_ctrl: 1      | f_saia:       1      | 
+23234456.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          3126   | g_ack:        1      | dt_proc_ctrl: 0      | f_saia:       0      | 
+23740868.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          3126   | g_ack:        1      | dt_proc_ctrl: 0      | f_saia:       1      | 
+24247280.00ns INFO     ..UVM/components/Scoreboard.py(81) [uvm_test_top.env.scoreboard]: ✅ PASSED: clk:          3126   | g_ack:        1      | dt_proc_ctrl: 1      | f_saia:       0      | 
+24347280.00ns INFO     ..b_UVM/components/coverage.py(92) [uvm_test_top.env.coverage]: ✅ Functional coverage reached all bins.
+24347280.00ns INFO     cocotb                             
+                                                          +--------------------+
+24347280.00ns INFO     cocotb                             | Final Fail Count: 0 |
+24347280.00ns INFO     cocotb                             +--------------------+
+24347280.00ns INFO     cocotb.regression                  ACK_test passed
+24347280.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                          ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                          **************************************************************************************
+                                                          ** tests.test_ack.ACK_test        PASS    24347280.00           1.13   21502288.44  **
+                                                          **************************************************************************************
+                                                          ** TESTS=1 PASS=1 FAIL=0 SKIP=0           24347280.00           1.29   18938050.13  **
+                                                          **************************************************************************************
+                                                          
+._205_ (diff. 14 ps)
+ $removal((negedge SET_B):22190372274 ps, (posedge CLK):22190372288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 23203196288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):23203196274 ps, (posedge CLK):23203196288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 23203196288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):23203196274 ps, (posedge CLK):23203196288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 23709608288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):23709608274 ps, (posedge CLK):23709608288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 23709608288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):23709608274 ps, (posedge CLK):23709608288 ps, 151 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40325) WARN** now 24216020288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $recovery((negedge SET_B):24216020274 ps, (posedge CLK):24216020288 ps, 133 ps);
+**pdk-lib/sky130_fd_sc_hd.v(40324) WARN** now 24216020288 ps [566] timing violation in wrapper.dut._205_ (diff. 14 ps)
+ $removal((negedge SET_B):24216020274 ps, (posedge CLK):24216020288 ps, 151 ps);
+Halted at location **pdk-lib/sky130_fd_io.v(11468) time 24347280001 ps from call to PLI vpi_control.
+237058 simulation events and 486764 declarative immediate assigns processed.
+469 behavioral statements executed (239 procedural suspends).
+  Times (in sec.):  Translate 0.2, load/optimize 0.1, simulation 1.6.
+  There were 2 error(s), 2638 warning(s), and 9383 inform(s).
+make[1]: *** [/home/matheus/Downloads/ACK/ACK_cocotb/cocotb_env/lib/python3.10/site-packages/cocotb/share/makefiles/simulators/Makefile.cvc:64: sim_build/sim.vvp] Erro 1

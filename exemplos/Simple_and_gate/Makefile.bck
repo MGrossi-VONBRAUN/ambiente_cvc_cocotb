@@ -1,0 +1,46 @@
+
+SIM = cvc64
+TOPLEVEL       = $(PWD)/netlist.v
+TB             = $(PWD)/testbench.v
+SDF             = $(PWD)/Simple_and_gate.sdf
+
+SOURCES = $(TOPLEVEL) $(TB)
+
+CVC_FLAGS = \
+			+acc+4 +incdir+pdk-lib +define+USE_POWER_PINS +define+FUNCTIONAL \
+			+informs +verbose \
+			+typdelays \
+			-l comp.log \
+			+suppress_warns+679 \
+			+suppress_warns+531 \
+			+suppress_warns+597
+
+#+timing_checks  +sdfverbose +sdf_log_file sdf.log
+#+define+FUNCTIONAL
+# A flag "suppress_warns+" serve para suprimir as warnings
+# (531) : Conexão de células que possuem 2 saídas e apenas uma é usada;
+# (597) : Células não usadas estarem instanciadas;	# (679) : Células vazias instanciadas.
+
+.PHONY: comp wave clean
+
+# Default compilation:
+comp:
+	$(SIM) $(CVC_FLAGS) $(SOURCES)
+	echo "Compile is done"
+
+cvc:
+	./cvcsim | tee cvcsim.log
+
+wave:
+	@sleep 1
+	surfer dump.fst
+
+clean:
+	rm -f dump.fst dump.vcd verilog.fst verilog.vcd dump_cvc.fst
+	rm -f netlist.json simv.vvp
+	rm -f diagram.dot diagram.svg diagram.png
+	rm -f cvcsim comp.log sdf.log cvcsim.log
+	clear
+	@echo "Make clean is done"; 
+	@sleep 1
+	clear

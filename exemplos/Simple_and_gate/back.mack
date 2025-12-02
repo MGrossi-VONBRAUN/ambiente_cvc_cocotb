@@ -1,0 +1,23 @@
+PRIMS_HD       	= $(PDK)/primitives_hd.v
+PRIMS_HVL      	= $(PDK)/primitives_hvl.v
+
+#EF_IO_AN		= $(PDK)/sky130_ef_io__analog_pad.v
+#EF_IO_GPIO    	= $(PDK)/sky130_ef_io__gpiov2_pad_wrapped.v
+EF_IO			= $(PDK)/sky130_ef_io.v
+
+FD_IO			= $(PDK)/sky130_fd_io.v
+FD_SC_HD       	= $(PDK)/sky130_fd_sc_hd.v
+FD_SC_HVL      	= $(PDK)/sky130_fd_sc_hvl.v
+
+EF_SC_HD_DECAP 	= $(PDK)/sky130_ef_sc_hd__decap_12.v
+
+#CELL_LIBS = 
+#$(PRIMS_HD) 
+#$(PRIMS_HVL)
+#$(EF_IO) 
+#$(FD_IO) 
+#$(FD_SC_HD) 
+#$(FD_SC_HVL) 
+#$(EF_SC_HD_DECAP)
+#$(EF_IO_AN) 
+#$(EF_IO_GPIO) 

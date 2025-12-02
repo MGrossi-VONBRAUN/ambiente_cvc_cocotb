@@ -1,0 +1,114 @@
+
+# Makefile
+PYTHON := $(abspath cocotb_env/bin/python)
+export PATH := $(dir $(PYTHON)):$(PATH)
+
+# =======================================================================
+# 1. Configuração da Simulação (Definir ANTES do include)
+# =======================================================================
+
+# Defina o simulador
+SIM = cvc
+
+# Defina a linguagem
+TOPLEVEL_LANG = verilog
+
+# Aponte para seu arquivo de teste Python (sem o .py)
+# NOTA: O arquivo gerado anteriormente foi test_and_gate.py.
+# Se o seu arquivo se chama testbench.py, altere para: MODULE = testbench
+MODULE = testbench
+
+# O Wrapper é o topo da hierarquia
+NETLIST_FILE = netlist
+TOPLEVEL = Simple_and_gate_wrapper
+
+# Conexões:
+VERILOG_SOURCES = $(TOPLEVEL).v $(NETLIST_FILE).v
+
+# Argumentos de compilação para uso sem células:
+#COMPILE_ARGS += \
+				-sv \
+				+acc+4 \
+				+interp \
+				+verbose \
+				+large \
+				+parallel2=on \
+				-l cvc_compile.log
+
+# Argumentos de compilação para uso com células sky130 com/sem sdf:
+COMPILE_ARGS += \
+				+acc+4 +incdir+pdk-lib \
+				+define+USE_POWER_PINS +define+FUNCTIONAL +define+UNIT_DELAY \
+				+informs +verbose \
+				+typdelays \
+				-l cvc_compile.log \
+				+large \
+				+parallel2=on \
+				+suppress_warns+679 \
+				+suppress_warns+531 \
+				+suppress_warns+597 \
+				+suppress_warns+3153 \
+				+suppress_warns+3154 \
+				+suppress_warns+3155
+
+# Habilita geração de ondas
+export WAVES = 1
+
+# =======================================================================
+# 2. Inclusão das Regras do Cocotb
+# =======================================================================
+include $(shell cocotb-config --makefiles)/Makefile.sim
+
+# =======================================================================
+# 3. Alvos Customizados e Pós-Processamento (Definir DEPOIS do include)
+# =======================================================================
+
+# Define run_and_log como o alvo padrão explicitamente no final
+.DEFAULT_GOAL := run_and_log
+
+.PHONY: run_and_log
+run_and_log:
+	@echo ">>> 1/3 Iniciando Simulação (logs salvos em cocotb_status.log)..."
+	# O pipe para 'tee' só retorna quando o make terminar.
+	# O prefixo '-' ignora erros de saída para permitir que o pós-processamento rode.
+	-@$(MAKE) --no-print-directory results.xml 2>&1 | tee cocotb_status.log
+	
+	@echo ">>> 2/3 Simulação finalizada. Iniciando pós-processamento..."
+	
+	@# Move os logs para a pasta sim_build (se existirem)
+	@mv -f cocotb_status.log sim_build/ 2>/dev/null || true
+	@mv -f cvc_compile.log sim_build/ 2>/dev/null || true
+	@mv -f results.xml sim_build/ 2>/dev/null || true
+	@# Move o arquivo de onda para a pasta sim_build
+	@mv -f dump.fst sim_build/ 2>/dev/null || true
+	
+	@echo ">>> 3/3 Organizando diretórios..."
+	@# Remove a pasta resultados antiga se existir
+	@rm -rf resultados
+	
+	@# Renomeia sim_build para resultados apenas se sim_build existir
+	@[ -d sim_build ] && mv sim_build resultados && echo "Pasta 'sim_build' movida para 'resultados'" \
+	|| echo "Aviso: Pasta sim_build não encontrada (simulação falhou antes de criá-la?)"
+
+.PHONY: wave
+wave:
+	@if [ ! -f resultados/dump.fst ]; then \
+		echo "Arquivo resultados/dump.fst não encontrado! Rode 'make' antes."; \
+		exit 1; \
+	fi
+	@echo "Abrindo GTKWave com resultados/dump.fst..."
+	surfer resultados/dump.fst &>/dev/null &
+
+# Limpeza ajustada
+clean::
+	clear
+	rm -f *.fst *.vcd
+	rm -f netlist.json simv.vvp
+	rm -f diagram.dot diagram.svg diagram.png
+	rm -f cvcsim comp.log sdf.log cvcsim.log verilog.log results.xml cocotb_status.log cvc_compile.log
+	rm -rf resultados sim_build
+	clear
+	@echo ">>> Make clean is done"
+	@sleep 0.75
+	clear
+

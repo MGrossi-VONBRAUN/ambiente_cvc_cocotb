@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1764253065" />
+    <testcase name="test_sequence" classname="testbench" file="/home/matheus/Documentos/My_IPs/Simple_and_gate/testbench.py" lineno="41" time="0.08672118186950684" sim_time_ns="200.001" ratio_time="2306.2531631654915" />
+  </testsuite>
+</testsuites>

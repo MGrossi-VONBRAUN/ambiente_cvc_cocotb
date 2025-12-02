@@ -1,0 +1,12 @@
+module Simple_and_gate
+(
+    //Inputs:
+    input A, 
+    input B,
+    //Outputs:
+    output out
+);
+
+assign out = (A & B);
+
+endmodule

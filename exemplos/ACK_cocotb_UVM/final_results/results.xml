@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1764696437" />
+    <testcase name="ACK_test" classname="tests.test_ack" file="/home/matheus/Downloads/ACK/ACK_cocotb/cocotb_env/lib/python3.10/site-packages/pyuvm/extension_classes.py" lineno="49" time="1.1323111057281494" sim_time_ns="24347280.001" ratio_time="21502288.44160556" />
+  </testsuite>
+</testsuites>
