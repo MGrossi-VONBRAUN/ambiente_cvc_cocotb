@@ -10,6 +10,7 @@ O fluxo foi projetado para facilitar a integração com netlists gerados para a 
 2. [Scripts de Automação](#-scripts-de-automação)
 3. [Exemplo de diretório pós-script](#exemplo-de-diretório-pós-script)
 4. [Exemplo do wrapper do ACK_pav2 gerado pelo script](#exemplo-do-wrapper-do-ack_pav2-gerado-pelo-script)
+5. [Instalação do Compilador CVC](#instalação-do-compilador-cvc)
 ---
 
 ## 📂 Estrutura de Diretórios Necessária
@@ -219,3 +220,107 @@ module wrapper;
 endmodule
 ```
 Neste exemplo foi utilizado o bloco ACK, mas a mesma regra se aplica aos demais, a pin-list sendo declarada inicialmente como wires, os power-pins com seus valores respectivos, a instanciação ao dut e por fim a anotação sdf, seguida do dump.
+
+---
+## Instalação do Compilador CVC:
+
+Com o objetivo de evitar dificuldades do usuário, também optei por linkar o compilador cvc neste repositório, não apenas isso, como este possui uma instalação relativamente chata de se fazer, criei um instalador .deb que instala de forma autônoma o compilador no sistema:
+
+Para isso execute o cvc.deb com o comando:
+
+```bash
+sudo dpkg -i ./cvc.deb
+```
+Caso peça algum pacote complementar, rode:
+
+```bash
+sudo apt-get install -f
+```
+
+ Esta é a forma mais simples para usuários de sistemas baseado em debian/ubuntu, caso utilize uma distro não compatível com o ecossistema o mais adequado é fazer a instalação manual que pode ser obtida pelo link abaixo:
+
+https://github.com/programmable-logic-tools/tachyon-cvc/tree/master
+
+Para a instalação iremos seguir o fluxo de instalação sugerido pelo fórum [Zhuanlan](https://www.google.com/url?q=https://zhuanlan.zhihu.com/p/440026629&sa=D&source=docs&ust=1764698040432303&usg=AOvVaw0Whiu513giaGrC2ItiSXPk):
+
+1º Passo: Entre no diretório da pasta:
+```bash
+cd open-src-cvc
+```
+2º Passo: Entre no diretório da pasta chkcvc.src.dir e execute o checkcvc64:
+```bash
+cd open-src-cvc/chkcvc.src.dir
+```
+3º Passo: Execute o checkcvc64:
+```bash
+./checkcvc64
+```
+Observação importante: O executável checkcvc64 é para sistemas operacionais de 64 bits. Se for um sistema operacional de 32 bits, você precisará gerar um arquivo binário para a verificação antes de executá-la, através dos passos abaixo:
+```bash
+make -f makefile.lnx
+```
+4º Passo: E após isso, acionar o executável:
+```bash
+./checkcvc
+```
+O programa verificará o ambiente de compilação do sistema e se algumas bibliotecas estão completas. Quando estiver concluído, ele imprimirá:
+```bash
+System configuration is fine for CVC compilation.
+```
+Isso indica que o ambiente de compilação está funcionando, caso contrário, você deve verificar se o gcc está totalmente instalado e se alguns arquivos de biblioteca estão instalados.
+
+5º Passo: Precisamos compilar o arquivo make presente na pasta src, para isso, precisamos adentra-la, através do comando:
+```bash
+cd open-src-cvc/src
+```
+ou caso esteja fazendo de forma sequencial, o comando abaixo já será suficiente:
+```
+cd src
+```
+6º Passo: Efetue a compilação do arquivo make de 64 bits, através do comando abaixo:
+```bash
+make -f makefile.cvc64
+```
+Após uma breve espera, o arquivo executável cvc64 será gerado no diretório atual, indicando que a compilação e a instalação foram bem-sucedidas.
+
+7º Passo: Aproveitando que estamos dentro da pasta src, copie o arquivo cvc64 para a pasta bin do sistema, através do comando:
+```bash
+cp ./cvc64 ../bin/
+```
+Após isso, iremos adicionar o executável ao path do sistema, através de uma edição simples do arquivo bash.
+
+**Observação importante:** O arquivo bash define os critérios de operação do terminal, e como sabemos o terminal pode ter dois modos de acesso, sendo por usuário comum ou por super usuário (sudo), então esse processo precisa ser feito duas vezes, uma vez em usuário comum e outra em sudo, caso não proceda desse modo, o cvc somente funcionará no perfil de terminal definido, ou seja, caso faça as alterações no bash em usuário comum, posteriormente tentes acessar o cvc em um terminal que esteja em sudo, o terminal irá retornar um erro.
+
+8º Passo: Para isso, é recomendado que crie uma nova janela de terminal e execute o comando à seguir para ir para o diretório base do sistema:
+```bash
+cd ~/
+```
+9º Passo: Após isso, abra o arquivo do bash, com o comando à seguir:
+```bash
+nano ~/.bashrc
+```
+10º Passo: Após isso, desça até o final do arquivo e adicione o seguinte trecho ao bash:
+```bash
+export PATH=/home/open-src-cvc/bin:$PATH
+```
+Observação importante: Caso seu programa esteja em outra pasta, ajuste para o caminho correto. 
+
+11º Passo: Salve o bashrc e feche o terminal. 
+
+Após concluir os passos acima, você poderá executar o cvc diretamente da linha de comando. 
+
+12º Passo: Sendo assim, abra um novo terminal e digite:
+```bash
+cvc64
+```
+Se tiver feito tudo corretamente, o terminal lhe retornará esta saída, indicando que a instalação do ambiente foi concluída:
+```bash
+OSS_CVC_7.00b-x86_64-rhel6x of 07/07/14 (Linux-elf).
+Copyright (c) 1991-2014 Tachyon Design Automation Corp.
+  All Rights reserved.  Licensed software subject to prohibitions and
+  restrictions.  See OSS CVC artistic license included with release.
+Today is Wed Dec  1 03:22:49 2021.
+**FATAL ERROR** [301] no Verilog input files specified
+```
+É normal que ocorra  um fatal error, pois nenhum arquivo verilog foi escolhido junto ao comando.
+
