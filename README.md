@@ -8,6 +8,8 @@ O fluxo foi projetado para facilitar a integração com netlists gerados para a 
 ## 📋 Sumário
 1. [Estrutura de Diretórios Necessária](#-estrutura-de-diretórios-necessária)
 2. [Scripts de Automação](#-scripts-de-automação)
+3. [Exemplo de diretório pós-script](#exemplo-de-diretório-pós-script)
+4. [Exemplo do wrapper do ACK_pav2 gerado pelo script](#exemplo-do-wrapper-do-ack_pav2-gerado-pelo-script)
 ---
 
 ## 📂 Estrutura de Diretórios Necessária
@@ -114,6 +116,7 @@ chmod +x build_wrapper.sh
 ---
 Após sua execução, será gerado o wrapper na pasta raiz do projeto em uma estrutura como a do exemplo abaixo:
 
+## Exemplo de diretório pós-script:
 ```bash
 ├── build_wrapper.sh 
 ├── files_synthesis
@@ -137,6 +140,7 @@ Após sua execução, será gerado o wrapper na pasta raiz do projeto em uma est
 └── wrapper.v
 ```
 
+## Exemplo do wrapper do ACK_pav2 gerado pelo script:
 ---
 Sua estrutura interna será composta por algo como:
 ```bash
