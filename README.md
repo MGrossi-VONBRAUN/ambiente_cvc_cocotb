@@ -17,8 +17,8 @@ Para que os scripts funcionem corretamente e a simulação ocorra sem erros, as 
 ```bash
 ├── build_wrapper.sh 
 ├── files_synthesis
-│   ├── ack_pav2.sdf
-│   └── ack_pav2.v
+│   ├── design.sdf
+│   └── design.v
 ├── gen_cocotb_env.sh
 ├── pdk-lib
 │   ├── primitives_hd.v
