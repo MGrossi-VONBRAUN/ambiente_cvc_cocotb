@@ -8,18 +8,35 @@ O fluxo foi projetado para facilitar a integração com netlists gerados para a 
 ## 📋 Sumário
 1. [Estrutura de Diretórios Necessária](#-estrutura-de-diretórios-necessária)
 2. [Scripts de Automação](#-scripts-de-automação)
-3. [Fluxo de Trabalho](#-fluxo-de-trabalho-sugerido)
-4. [Limpeza](#-limpeza-do-projeto)
 ---
 
 ## 📂 Estrutura de Diretórios Necessária
 
 Para que os scripts funcionem corretamente e a simulação ocorra sem erros, as seguintes pastas devem estar presentes na raiz do projeto:
 
+├── build_wrapper.sh
+├── files_synthesis
+│   ├── ack_pav2.sdf
+│   └── ack_pav2.v
+├── gen_cocotb_env.sh
+├── pdk-lib
+│   ├── primitives_hd.v
+│   ├── primitives_hvl.v
+│   ├── primitives.v
+│   ├── sky130_ef_io__analog_pad.v
+│   ├── sky130_ef_io__gpiov2_pad_wrapped.v
+│   ├── sky130_ef_io.v
+│   ├── sky130_ef_sc_hd__decap_12.v
+│   ├── sky130_fd_io.v
+│   ├── sky130_fd_sc_hd.v
+│   ├── sky130_fd_sc_hvl.v
+│   └── sky130_sram_2kbyte_1rw1r_32x512_8.v
+└── README.md
+
 ### `files_synthesis/`
 Esta pasta deve conter os arquivos resultantes do processo de síntese lógica (gerados por ferramentas como OpenLane/Librelane).
 
-A título de exemplo carreguei o repositório com o arquivo .v e o .sdf para entendimento.
+A título de exemplo carreguei o repositório com o arquivo .v e o .sdf para entendimento, substitua para seu caso.
 * **Netlist (.v)**: O arquivo Verilog estrutural pós-síntese do seu design. O script `build_wrapper.sh` buscará automaticamente o primeiro arquivo `.v` encontrado aqui.
 * **Delay File (.sdf)**: (Obrigatório para simulação com timing) Um arquivo *Standard Delay Format* que deve ter o **mesmo nome base** do arquivo `.v` (ex: `design.v` e `design.sdf`). O wrapper gerado incluirá a anotação `$sdf_annotate` apontando para este arquivo.
 
