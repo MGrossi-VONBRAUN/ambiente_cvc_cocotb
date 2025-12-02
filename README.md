@@ -1,4 +1,4 @@
-# Ambiente de Verificação Digital (Cocotb + CVC + Sky130)
+# Ambiente de Verificação Digital (Cocotb + CVC + Sky130 + SDF)
 
 Este repositório contém a estrutura para configurar um ambiente de verificação funcional e pós-síntese (GLS - Gate Level Simulation) utilizando **Cocotb**, **PyUVM** e o simulador **CVC**.
 
